@@ -1,0 +1,104 @@
+MATH230: Logic, Automata, and Computability                       Project began: 1st December 2021
+
+Notes from meeting with Walter Guttmann.
+
+  I am free to cut down on content in order to be more effective.
+  As long as predicate logic is covered CS (Walter) is happy.
+
+[ ]: Develop a plan for design under the assumption I am teaching the entire course.
+
+  I have to meet the following course description
+
+  "An introduction to various formal logics, the theory of automata, and the theoretical limitations of the computer."
+
+  * Idea is to take a historical approach. Consider the problems that motivated the theory and the solutions given. *
+
+    [ ]: Reading
+
+        [ ]: Formal Logic, Burgess
+        [ ]: The Annotated Turing, Petzold
+        [ ]: Elements of Mathematics, Stillwell
+        [ ]: Lectures on the Philosophy of Mathematics, Hamkins
+        [ ]: Automata and Computability, Kozen
+        [ ]: Discrete Mathematics with Applications, Epp
+
+
+  [ ]: Which topics do I want to include?
+
+    [ ]: Logic
+
+      So long as there are "various formal logics" and a focus on predicate logic, then I am free to do whatever.
+      Guttmann wants students to "DO" induction proofs. Induction on what?
+
+    [ ]: Models of computation and automata
+
+    [ ]: Theoretical limitations of logic and computing
+
+
+Notes from reading:
+
+  Lectures on the Philosphy of Mathematics, Hamkins
+
+    Q: What does it mean for a procedure/function to be computable?
+
+      A: We have intuitive feel for this: carry out some number of steps and arrive at the output.
+
+      A': But this raises more questions, like; how many steps? which steps? Can we be more precise
+          about what computation is and how we do it?
+
+      Godel: Primitive recursive functions.
+      Turing: Turing machines.
+      ... Other models.
+
+    Q: Given that there are many models of computation, which one should we use? How similar are they?
+    Q: Have we arrived at "the definition" of computation? Have we got it correct? How can we tell?
+
+        [ ]: Kurt Godel on Primitive Recursive Functions
+
+          Briefly: we can define "computable" (in some obvious intuitive sense) primitive functions and "computable" actions on those primitives.
+          Every function obtained therefrom will hence be "computable" by extension. Despite the obvious/intuitive definition, a rich class
+          of functions are captured - much of mathematics in fact!
+
+        [ ]: Alan Turing on Computability
+
+          In the first instance Turing Machines are designed to compute (partial) functions from N to N.
+
+           Turing Machine:
+
+              [ ]: Input - specified by n 1s at the start of a (potentially) infinite strip.
+              [ ]: State - finite list of states (free to choose before beginning) the Machine can be in.
+              [ ]: Output - read from the left most part of the strip.
+
+              Note: There are many variations on the Turing Machine Theme. More tapes. Larger alphabet... In some real
+                    sense none of that variation matters. These variations might be easier to program or compute faster.
+                    But the computable functions are the same in the end. That's what we're interested in here.
+
+                    [[!]]: This means I have to pick a model for the course.
+
+          UNIVERSALITY:
+          Each function f: N --> N seems to require a purpose built Turing Machine to compute it. If indeed the function
+          is computable. However, Turing saw that universality could be obtained. Turing Machines within' Turing Machines.
+
+          HIGH LEVEL ARGUEMENTS:
+          Turing Machines are not meant to be used to compute anything. They are a conceptual tool for analysing the
+          theory of computation.
+
+
+Exercises for students (and me!):
+
+  [ ]: Recursive functions
+
+    [ ]: Show arithmetic is primitive recursive
+    [ ]: Show logic is (to what extent?) primitive recursive
+
+  [ ]: Turing machines
+
+    [ ]: Write the successor function on a Turing Machine
+    [ ]: Write arithmetic on Turing Machines
+    [ ]: Write logic on Turing Machines
+    [ ]: Detect parity (even/odd) with Turing Machine
+
+    [ ]: Detect equality with a Turing Machine
+    [ ]: Detect divisibility with a Turing Machine [[!]]
+
+    [ ]: Write a Turing Machine that prints "Hello world!" and then HALTS.
