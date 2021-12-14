@@ -113,36 +113,55 @@ Exercises for students (and me!):
         Reading:
 
             [ ]: Chapter 7 - Lectures on the Philosophy of Mathematics, Hamkins.
+
+                Notes from
+
             [ ]: Chapter 5 - Mathematical Logic and the Foundations of Mathematics, Kneebone.
-            [ ]: Chapter 8 - Introduction to the Foundations of Mathematics, Wilder.
 
+                Notes from
 
-        Humans have developed, over millenia, a vast field of study: Mathematics. Where the topics and considerations
-        were once quite concrete and "of the real world", now they are abstract and seem to be ever more so abstracted
-        from the real world.
+            [ ]:           - Introduction to the Foundations of Mathematics, Wilder.
 
-        Intuitions we have about the real world can't be used to judge the truth/validity/consistency of mathematical
-        statements like: * Enter complicated statements here *
+                Notes from Section 2.5 in Wilder.
 
-        Where mathematicians previously focused on points and lines; circles and squares (think Euclid) we now wonder
-        about Galois representations, modular forms, and Riemann surfaces.
+        "Every demonstrable science must start with indemonstrable principles.
+         Otherwise, the steps of demonstration would be endless" --- Aristotle.
+
+        If you want to gain knowledge about a subject, through argumentation, then you have to
+        begin from some base of understanding. An argument for one proposition, uses others.
+        These must be argued for. So on. The Ancient Greeks knew this, as evidenced by the openning
+        quote of Aristotle [reference]. Moreover Euclid of Alexandria published a text on which
+        all of mathematics was based; from just a handful of "axioms" and "common postulates" that
+        encapsulated their understanding of geometric methods.
+
+          [Comment on the Munchausen Trilemma]
+
+        In the two millenia separating us from those mathematicians of Ancient Greece, much has
+        been expanded upon by many mathematicians after them. In short, many things whose nature
+        cannot be encapsulated by the axioms and postulates presented by them in The Elements.
+
+        The introduction of algebra, coordinates, and the methods of calculus. Non-Euclidean
+        Geometries, infinite series, and imaginary numbers. This rich tapestry of mathematics, built over millenia can't rely on the Euclid alone. But, all knowledge must start with indemonstrable principles.
+
+        Note: Ancient Greeks too noticed problems with their axioms. What is clear and common to some, may not be to all. Euclid's Fifth Postulate caused controversy that was only resolved some two millenia after he published it.
+
+        Humans have developed, over millenia, a vast field of study: Mathematics. Where the topics and considerations were once quite concrete and "of the real world", now they are abstract and seem to be ever more so abstracted from the real world.
+
+        Intuitions we have about the real world can't be used to judge the truth/validity/consistency of mathematical statements like: * Enter complicated statements here *
+
+        Where mathematicians previously focused on points and lines; circles and squares (think Euclid) we now wonder about Galois representations, modular forms, and Riemann surfaces.
 
               Q: What *are* these things?
               Q: How do we know that what we're saying about them is correct?
               Q: How is it that we gain knowledge about mathematics?
 
-        With such questions we are pushing into Philosophy. I won't talk much about philosophy, but I will bring up the
-        following point - something I think all undergrads (humans?) should be mindful of: *Munchausen Trilemma*
+        With such questions we are pushing into Philosophy. I won't talk much about philosophy, but I will bring up the following point - something I think all undergrads (humans?) should be mindful of: *Munchausen Trilemma*
 
-        It pays to remember our understanding of mathematics has been informed by this foundational work, so things
-        that seem obvious to us weren't so in the 1800s and early 1900s.
+        It pays to remember our understanding of mathematics has been informed by this foundational work, so things that seem obvious to us weren't so in the 1800s and early 1900s.
 
                           *** Foundational Crisis of Mathematics ***
 
-        The collective uncertainty amoung some (many, but not all) mathematicians about these issues has been called
-        the Foundational Crisis of Mathematics. This course will outline some of the mathematics that was developed
-        in response to this crisis. Ultimately unveiling many interesting facts about mathematics and computation and
-        creating the field of Computer Science. Not to mention laying the foundations for the creation of the
-        modern computer!
+        The collective uncertainty amoung some (many, but not all) mathematicians about these issues has been called the Foundational Crisis of Mathematics. This course will outline some of the mathematics that was developed
+        in response to this crisis. Ultimately unveiling many interesting facts about mathematics and computation and creating the field of Computer Science. Not to mention laying the foundations for the creation of the modern computer!
 
         These seemingly elementary considerations have had an uncalculable effect on human society.
