@@ -34,6 +34,8 @@ Notes from meeting with Walter Guttmann.
 
     [ ]: Theoretical limitations of logic and computing
 
+      Turing's proof of HALTing problem and, as a result, Godel's incompletness theorem.
+
 
 Notes from reading:
 
@@ -102,3 +104,45 @@ Exercises for students (and me!):
     [ ]: Detect divisibility with a Turing Machine [[!]]
 
     [ ]: Write a Turing Machine that prints "Hello world!" and then HALTS.
+
+
+*** Hilbert's Problems, Consistency, and Foundations of Mathematics ***
+
+    Q: What is the historical background (context) from which all of these ideas came into being?
+
+        Reading:
+
+            [ ]: Chapter 7 - Lectures on the Philosophy of Mathematics, Hamkins.
+            [ ]: Chapter 5 - Mathematical Logic and the Foundations of Mathematics, Kneebone.
+            [ ]: Chapter 8 - Introduction to the Foundations of Mathematics, Wilder.
+
+
+        Humans have developed, over millenia, a vast field of study: Mathematics. Where the topics and considerations
+        were once quite concrete and "of the real world", now they are abstract and seem to be ever more so abstracted
+        from the real world.
+
+        Intuitions we have about the real world can't be used to judge the truth/validity/consistency of mathematical
+        statements like: * Enter complicated statements here *
+
+        Where mathematicians previously focused on points and lines; circles and squares (think Euclid) we now wonder
+        about Galois representations, modular forms, and Riemann surfaces.
+
+              Q: What *are* these things?
+              Q: How do we know that what we're saying about them is correct?
+              Q: How is it that we gain knowledge about mathematics?
+
+        With such questions we are pushing into Philosophy. I won't talk much about philosophy, but I will bring up the
+        following point - something I think all undergrads (humans?) should be mindful of: *Munchausen Trilemma*
+
+        It pays to remember our understanding of mathematics has been informed by this foundational work, so things
+        that seem obvious to us weren't so in the 1800s and early 1900s.
+
+                          *** Foundational Crisis of Mathematics ***
+
+        The collective uncertainty amoung some (many, but not all) mathematicians about these issues has been called
+        the Foundational Crisis of Mathematics. This course will outline some of the mathematics that was developed
+        in response to this crisis. Ultimately unveiling many interesting facts about mathematics and computation and
+        creating the field of Computer Science. Not to mention laying the foundations for the creation of the
+        modern computer!
+
+        These seemingly elementary considerations have had an uncalculable effect on human society.
