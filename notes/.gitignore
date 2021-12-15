@@ -1,0 +1,7 @@
+# Ignore TeX files
+.aux
+.bbl
+.bcf
+.blg
+.log
+.run.xml
