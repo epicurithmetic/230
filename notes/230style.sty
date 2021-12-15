@@ -1,0 +1,37 @@
+% Style settings for 230 Lectures
+
+% Settings for the headers and footers
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+% Header settings
+\lhead{}
+\chead{}
+\rhead{MATH230}                      % For further control of the header and footer use commands:
+\renewcommand{\headrulewidth}{0pt}   % \fancyhead[LE,RO]{} and \fancyfoot[CE,CO]
+% Footer settings                    % To control what happens on the odd and even pages.
+\lfoot{}
+\cfoot{}
+\rfoot{\leftmark}
+\renewcommand{\footrulewidth}{0pt}
+% Package for presenting quotes at the start of lectures
+\usepackage{epigraph}
+
+% ams packages
+\usepackage{amsthm} % Documentation: Using the amsthm Package
+% Custom TheoremStyle for indented definitions and theorems
+\newtheoremstyle{indentDefn}
+{3pt} % Space above
+{10pt} % Space below
+{} % Body font
+{3em} % Indent amount
+{\bf} % Theorem head font
+{} % Punctuation after theorem head
+{0.5em} % Space after theorem head
+{} % Theorem head spec
+
+
+\theoremstyle{indentDefn}
+\newtheorem{defn}{Definition}
+
+\theoremstyle{plain}

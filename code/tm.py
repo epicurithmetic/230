@@ -165,7 +165,11 @@ class turingMachine():
 
 
 test = turingMachine()
-test.print_tape()
-test.progress_TM()
-test.print_tape()
+
+for i in range(0,3):
+
+    print(test.tape)
+    #test.print_tape()
+    test.progress_TM()
+    #test.print_tape()
 print(test.mconfig)
