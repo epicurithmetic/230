@@ -168,3 +168,45 @@ Exercises for students (and me!):
         in response to this crisis. Ultimately unveiling many interesting facts about mathematics and computation and creating the field of Computer Science. Not to mention laying the foundations for the creation of the modern computer!
 
         These seemingly elementary considerations have had an uncalculable effect on human society.
+
+
+
+        In Logic we distinguish the form of the argument from the meaning of the argument.
+        Formally we distinguish validity (syntax) and soundness (semantics).
+
+        We can use logic to understand the syntactic validity of an argument. More has to be employed to get at the semantic soundness - we need to give the symbols meaning.
+
+        Topics to cover
+
+            Logic
+              [ ]: We need a language to frame our theory in: logic.
+              [ ]: Historically logic grew from analysing arguments.
+              [ ]: Natural language and the need to formalise
+              [ ]: Propositional logic
+                Focus on validity. Explicitly exclude Truth, for now. Just look at the
+                syntactic form of the argument.
+              [ ]: Truth tables
+                [ ]: Disjunctive normal form
+                [ ]: Universal connectives: NAND is universal, NOR is universal.
+              [ ]: Natural deduction or semantic tableaux?
+              [ ]: Predicate logic
+
+              [ ]: No strong enough to do any (interesting) mathematics
+
+              [ ]: (Robinson? and?) Peano Arithmetic (with and without induction)
+              [ ]: ZF set theory (with/without choice)
+
+            Computability
+
+              [ ]: Talk about decidability in terms of logic
+              [ ]: Recursive functions (Godel)
+              [ ]: Turing machines (Turing)
+              [ ]: Lambda calculus (Church)
+              [ ]: Briefly mention other models of computation (push to tutorials)
+              [ ]: Address questions raised earlier about mathematics
+                  [ ]: HALT problem
+                  [ ]: Incompletness Theorem
+
+            Extra time
+              [ ]: Lean with natural numbers game (automatic proof more generally)
+              [ ]: How to think about incompletness and axioms (Multiverse)
