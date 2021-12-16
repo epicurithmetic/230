@@ -169,8 +169,6 @@ Exercises for students (and me!):
 
         These seemingly elementary considerations have had an uncalculable effect on human society.
 
-
-
         In Logic we distinguish the form of the argument from the meaning of the argument.
         Formally we distinguish validity (syntax) and soundness (semantics).
 
@@ -180,18 +178,20 @@ Exercises for students (and me!):
 
             Logic
               [ ]: We need a language to frame our theory in: logic.
-              [ ]: Historically logic grew from analysing arguments.
+              [ ]: Historically logic grew from analysing arguments
               [ ]: Natural language and the need to formalise
-              [ ]: Propositional logic
+              [ ]: Propositional logic (obtaining new knowledge from old)
                 Focus on validity. Explicitly exclude Truth, for now. Just look at the
-                syntactic form of the argument.
+                syntactic form of the argument. (Signature = non-logical symbols)
+                Obvious axioms. Move to concise list.
               [ ]: Truth tables
                 [ ]: Disjunctive normal form
                 [ ]: Universal connectives: NAND is universal, NOR is universal.
               [ ]: Natural deduction or semantic tableaux?
               [ ]: Predicate logic
+              [ ]: Completness
 
-              [ ]: No strong enough to do any (interesting) mathematics
+              [ ]: Not strong enough to do any (interesting) mathematics
 
               [ ]: (Robinson? and?) Peano Arithmetic (with and without induction)
               [ ]: ZF set theory (with/without choice)
@@ -204,9 +204,12 @@ Exercises for students (and me!):
               [ ]: Lambda calculus (Church)
               [ ]: Briefly mention other models of computation (push to tutorials)
               [ ]: Address questions raised earlier about mathematics
-                  [ ]: HALT problem
+                  [ ]: HALTing problem
                   [ ]: Incompletness Theorem
 
             Extra time
-              [ ]: Lean with natural numbers game (automatic proof more generally)
-              [ ]: How to think about incompletness and axioms (Multiverse)
+              [ ]: Godel Incompletness: what is means and doesn't mean (c.f. completness)
+              [ ]: Lean via natural numbers game (automatic proof more generally)
+              [ ]: Godels "extra axioms" reaction to his independence result
+              [ ]: How to think about incompletness and axioms (Multiverse, Hamkins)
+              [ ]: Gentzen's proof of the consistency of Peano Axioms
