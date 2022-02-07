@@ -30,13 +30,62 @@
 
 \vspace{5em}
 
+Gentzen style proof of {\bf Modus Tollens} $\{\lnot \beta, \alpha\rightarrow \beta \} \vdash \lnot \alpha$
+
 \infer[\rightarrow I ]{\alpha \rightarrow \bot}
 {\infer[\rightarrow E]{\bot}{\infer[]{\beta}{\infer[]{\cancel\alpha}{} & \alpha\rightarrow \beta} & \lnot \beta}}
 
 \vspace{5em}
+\newpage
+Gentzen style proof of {\bf Law of Contraposition} with Modus Tollens
 
-\infer[]{\lnot\beta \rightarrow \lnot\alpha}
-{\infer[]{\lnot\alpha}
+\infer[\to I]{\lnot\beta \rightarrow \lnot\alpha}
+{\infer[\textnormal{MT}]{\lnot\alpha}
 {\alpha\rightarrow\beta & \infer[]{\cancel\lnot\beta}{}}}
+
+\vspace{5em}
+
+Gentzen style proof of {\bf Law of Contraposition} $\alpha \rightarrow \beta \vdash \lnot\beta \rightarrow \lnot\alpha$
+
+\infer[\to I]{\lnot\beta \rightarrow \lnot \alpha}
+{\infer[\to I]{\alpha \rightarrow \bot}
+{\infer[\to E]{\bot}
+{\infer[\to I]{\beta}{\alpha \rightarrow \beta & \infer[]{\cancel\alpha}{}} & \infer[]{\cancel\lnot\beta}{}}}}
+
+\newpage
+
+Gentzen style proof of the {\bf Commutativity of Disjunction} $(\alpha \lor \beta) \vdash (\beta \lor \alpha)$
+
+\infer[]{\beta \lor \alpha}
+{\alpha \lor \beta & \infer[\to I]{\alpha\rightarrow(\beta \lor \alpha)}{\infer[\lor I]{\beta \lor \alpha}{\infer[]{\alpha}{}}} & \infer[\to I]{\beta\rightarrow(\beta \lor \alpha)}{\infer[\lor I]{\beta \lor \alpha}{\infer[]{\beta}{}}}}
+
+\newpage
+
+Gentzen style proof of the {\bf Associativity of Disjunction}
+
+\begin{center}
+$(\alpha \lor \beta) \lor \gamma \vdash \alpha \lor (\beta \lor \gamma)$
+\end{center}
+
+
+\infer[\lor E]{\alpha \lor (\beta \lor \gamma)}
+{(\alpha \lor \beta) \lor \gamma
+& \infer[\to I]{\gamma \rightarrow (\alpha \lor (\beta \lor \gamma))}
+{\infer[]{\alpha \lor (\beta \lor \gamma)}
+{}}
+& \infer[\to I]{(\alpha \lor \beta) \rightarrow (\alpha \lor (\beta \lor \gamma))}
+{\infer[\lor E]{\alpha \lor (\beta \lor \gamma)}
+{\infer[]{\cancel{\alpha \lor \beta}}{}
+& \infer[\to I]{\alpha \rightarrow (\alpha \lor (\beta \lor \gamma))}
+{\infer[\lor I]{\alpha \lor (\beta \lor \gamma)}
+{\infer[]{\cancel\alpha}
+{}}}
+&
+\infer[\to I]{\beta\rightarrow((\alpha \lor (\beta \lor \gamma))}
+{\infer[\lor I]{\alpha \lor (\beta \lor \gamma)}
+{\infer[\lor I]{\beta \lor \gamma}
+{\infer[]{\cancel\beta}
+{}}}}}}}
+
 
 \end{document}
