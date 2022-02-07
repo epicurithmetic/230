@@ -4,10 +4,39 @@
 \documentclass{article}
 
 % Import the style file
-\usepackage{230style}
+%\usepackage{230style}
 \usepackage{proof}
-
+\usepackage{cancel}
 \begin{document}
 
+
+% a implies a
+\infer[\rightarrow I,1]
+{\alpha \rightarrow \alpha}
+{\infer[1]
+{\alpha}
+{}}
+
+\vspace{5em}
+
+% Modus ponens
+\infer[\rightarrow E]
+{\beta}
+{\alpha & \alpha \rightarrow \beta}
+
+\vspace{5em}
+
+\infer[\rightarrow E]{\gamma}{\infer[\rightarrow E]{\lnot \beta \rightarrow \gamma}{\alpha & \alpha \rightarrow (\lnot \beta \rightarrow \gamma)} & \infer[\rightarrow E]{\lnot \beta}{\alpha & \alpha \rightarrow \lnot \beta}}
+
+\vspace{5em}
+
+\infer[\rightarrow I ]{\alpha \rightarrow \bot}
+{\infer[\rightarrow E]{\bot}{\infer[]{\beta}{\infer[]{\cancel\alpha}{} & \alpha\rightarrow \beta} & \lnot \beta}}
+
+\vspace{5em}
+
+\infer[]{\lnot\beta \rightarrow \lnot\alpha}
+{\infer[]{\lnot\alpha}
+{\alpha\rightarrow\beta & \infer[]{\cancel\lnot\beta}{}}}
 
 \end{document}
