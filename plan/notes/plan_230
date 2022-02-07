@@ -50,6 +50,7 @@ Notes from reading:
 
       Godel: Primitive recursive functions.
       Turing: Turing machines.
+      Church: Lambda calculus
       ... Other models.
 
     Q: Given that there are many models of computation, which one should we use? How similar are they?
@@ -189,7 +190,7 @@ Exercises for students (and me!):
                 [ ]: Universal connectives: NAND is universal, NOR is universal.
               [ ]: Natural deduction or semantic tableaux?
               [ ]: Predicate logic
-              [ ]: Completness
+              [ ]: Completeness
 
               [ ]: Not strong enough to do any (interesting) mathematics
 
