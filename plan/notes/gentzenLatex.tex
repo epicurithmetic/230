@@ -71,8 +71,10 @@ $(\alpha \lor \beta) \lor \gamma \vdash \alpha \lor (\beta \lor \gamma)$
 \infer[\lor E]{\alpha \lor (\beta \lor \gamma)}
 {(\alpha \lor \beta) \lor \gamma
 & \infer[\to I]{\gamma \rightarrow (\alpha \lor (\beta \lor \gamma))}
-{\infer[]{\alpha \lor (\beta \lor \gamma)}
-{}}
+{\infer[\lor I]{\alpha \lor (\beta \lor \gamma)}
+{\infer[\lor I]{\beta \lor \gamma}
+{\infer[]{\cancel\gamma}
+{}}}}
 & \infer[\to I]{(\alpha \lor \beta) \rightarrow (\alpha \lor (\beta \lor \gamma))}
 {\infer[\lor E]{\alpha \lor (\beta \lor \gamma)}
 {\infer[]{\cancel{\alpha \lor \beta}}{}
