@@ -48,7 +48,7 @@ def read_TM_Code(turingMachine):
         Each of the lines corresponds to an instruction in standard form.
 
         Output: List of states in standard form. That is, a list of the lines in the
-                turingMachine input .txt file. 
+                turingMachine input .txt file.
 
     """
 
@@ -60,17 +60,3 @@ def read_TM_Code(turingMachine):
     code_file.close()
 
     return code_raw
-
-<<<<<<< HEAD
-test = turingMachine()
-
-for i in range(0,3):
-
-    print(test.tape)
-    #test.print_tape()
-    test.progress_TM()
-    #test.print_tape()
-print(test.mconfig)
-=======
-print(read_TM_Code("tm-code-unaryAddition.txt"))
->>>>>>> a11e377bcde20169df75e2226d695a547975bf4d
