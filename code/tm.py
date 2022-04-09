@@ -1,7 +1,7 @@
 # Code for simulating a turing machine.
 
 
-def read_TM_Input_Tape(inputTape):
+def read_tm_input_tape(inputTape):
 
     """
         This function reads a .txt file with a single line which should be of the following form:
@@ -30,7 +30,7 @@ def read_TM_Input_Tape(inputTape):
 
     return input_raw
 
-def read_TM_Code(turingMachine):
+def read_tm_code(turingMachine):
 
     """
         Input: turingMachine is assumed to be a .txt file with the following format
@@ -83,7 +83,7 @@ def tm_compile_dictionary(turingMachineCode):
 
         Idea is that this dictionary is to be used as
 
-        dict[state][read] = [print,move,new_state]
+        dict[state][read_value] = [print,move,new_state]
 
 
         So, this dictionary has each state name "qxyz" as a key. Each state has a dictionary
@@ -95,7 +95,7 @@ def tm_compile_dictionary(turingMachineCode):
     tm_code_dictionary = {}
 
     # Read in the code from the file.
-    raw_instructions = read_TM_Code(turingMachineCode)
+    raw_instructions = read_tm_code(turingMachineCode)
 
     # Collect the names of the states
     tm_states = tm_state_names(raw_instructions)
