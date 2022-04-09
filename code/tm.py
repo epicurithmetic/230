@@ -90,7 +90,7 @@ def tm_compile_dictionary(turingMachineCode):
         list of instructions for the Turing Machine.
 
     """
-
+    # This dictionary will have the state names as keys.
     tm_code_dictionary = {}
 
     # Read in the code from the file.
@@ -101,6 +101,9 @@ def tm_compile_dictionary(turingMachineCode):
 
     for state in tm_states:
 
+        # This dictionary will be the value of the output dictionary for the state key.
+        # The keys for this dictionary are the read values of the head.
+        # The values for this dictionary are lists of instructions [print,move,new_state].
         state_instruction_dictionary = {}
 
         for instruction in raw_instructions:
@@ -118,4 +121,58 @@ def tm_compile_dictionary(turingMachineCode):
 
     return tm_code_dictionary
 
+def tm_move_instruction(direction):
+
+    """
+        This function maps the move instructions "L/R/N" to -1,1,0
+        Outputs an INT.
+    """
+
+    if direction == "L":
+        return -1
+    elif direction == "R":
+        return + 1
+    else:
+        return 0
+
+# Start the computations...
+
+turingMachineInput = read_tm_input_tape("tm-tape-unaryAddition.txt")
+print(turingMachineInput)
 turingMachineDictionary = tm_compile_dictionary("tm-code-unaryAddition.txt")
+
+
+state = "q0"
+head_read = "@"
+head_position = 0
+
+
+steps = 1
+
+while state != "HALT":
+
+    # Update the state until it gets to HALT
+
+    # Retrieve the current instruction set.
+    current_instructions = turingMachineDictionary[state][head_read]
+
+    # Print the appropriate value to the tape.
+    print_value = current_instructions[0]
+    turingMachineInput[head_position] = print_value
+
+    # Find the move direction and update the head position
+    move_direction = current_instructions[1]
+    head_position += tm_move_instruction(move_direction)
+
+    # Update the state according to the instructions.
+    state = current_instructions[2]
+
+    # Update the value being read to the value in the new position
+    head_read = turingMachineInput[head_position]
+
+
+    print(turingMachineInput)
+    # Print the number of steps
+    steps += 1
+
+print(steps)
