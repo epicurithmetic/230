@@ -1,6 +1,5 @@
 # Code for simulating a turing machine.
 
-
 def read_tm_input_tape(inputTape):
 
     """
