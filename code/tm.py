@@ -1,169 +1,67 @@
-# Turing Machine
+# Code for simulating a turing machine.
 
-# Idea is to define a class turingMachine() which can be initialized with: (i) alphabet (e.g. blank, 0,1,scwha) (ii) set
-# of instructions m-configurations used to define what the machine does at each step (iii) the ability to input
-# the tape on which the machine acts by reading and writing.
 
-class turingMachine():
+
+
+def read_TM_Input_Tape(inputTape):
+
+    """
+        This function reads a .txt file with a single line which should be of the following form:
+
+            @,1,1,1,b,1,1;
+
+        Which represents the input tape for the Turing Machine.
+
+        Note: This function should have an optional input which can be used to pad the
+              input tape with the desired number of blank cells to the right. This will allow
+              the Machine to go past the inputs in its working - if that is needed.
+
+
+        Output: List containing each cell on the tape as an entry. All strings.
+
+    """
+
+    # Read the input tape from file.
+    input_file = open(inputTape,"r")
+    input_raw = input_file.read()
+    input_file.close()
+
+    # Remove the format from the file.
+    for character in [",",";","\n"," "]:
+        input_raw = [x for x in input_raw if (x != character)]
+
+    return input_raw
+
+print(read_TM_Input_Tape("tm-tape-unaryAddition.txt"))
+
+
+def read_TM_Code(turingMachine):
+
+    """
+        Input: turingMachine is assumed to be a .txt file with the following format
+
+            q0,@,@,R,q1;
+            q1,1,1,R,q1;
+            q1,b,b,R,q2;
+            ...
+
+        Each of the lines corresponds to an instruction in standard form.
+
+        Output: List of states in standard form. That is, a list of the lines in the
+                turingMachine input .txt file. 
 
     """
 
 
-        Each m-configurations is to be expressed in the notation of Turing's paper:
+    # Read the Turing machine code from file.
+    code_file = open(turingMachine,"r")
+    code_raw = code_file.read().split(";\n")[:-1]
+    # At this point code_raw is a list of states in "standard form"
+    code_file.close()
 
-            e.g. [q_i, S_j, S_k, R/L, q_m]
+    return code_raw
 
-        Which is to be read as: in state q_i, while reading symbol S_j,
-        print S_k, move right/left and change the machine to state q_m.
-
-    """
-
-    def __init__(self):
-
-        """
-
-        """
-
-        self.tape = ["0"]*10                # Tape initially empty.
-        self.mconfig = "q_1"                # Initial state always called q_1.
-        self.head = 0                       # Head always starts at the left-most cell.
-        self.alphabet = ["b", "0", "1"]     # Default alphabet for the machine.
-                                            # Note: "b" is BLANK.
-        self.states = {}
-        self.define_mconfigs()
-
-    def define_mconfigs(self):
-
-        """
-            This method prompts the user to enter the m-configurations of the Turing Machine.
-            This class assumes the user will adhere to Turing's notation as outlined
-            in the doc-string for this class.
-
-        """
-
-        number_of_mconfigs = len(self.states)
-
-        if number_of_mconfigs == 0:
-            print("Define the m-configurations for when the Machine is in the initial state q1: ")
-
-            # This will store all possible moves when in q_1.
-            # Each of which depends only on the symbol read.
-            m_configurations_all = []
-
-            # By looping over each symbol, we can be sure to get every m-config required.
-            for symbol in self.alphabet:
-                S_j = symbol
-                print(f"If the Turing Machine is in state q_1 and the head reads {S_j}")
-                S_k = input("then the Turing Machine should print symbol [0,1,b] S_k = ")
-                move_instruction = input("then move the head [L/R] = ")
-                q_m = input("and finish in state: ")
-
-                m_configurations_all.append([S_j,S_k,move_instruction,q_m])
-
-            # Add this m-configuration to the dictionary.
-            self.states["q_1"] = m_configurations_all
-
-        else:
-
-            updating_Turing_Machine = True
-            while updating_Turing_Machine == True:
-
-                print("Define an m-configuration of the Turing Machine: ")
-                q_i = input("Initial state = ")
-
-                # This will store all possible moves when in q_i.
-                # Each of which depends only on the symbol read.
-                m_configurations_all = []
-
-                # By looping over each symbol, we can be sure to get every m-config required.
-                for symbol in self.alphabet:
-                    S_j = symbol
-                    print(f"If the Turing Machine is in state {q_i} and the head reads {S_j}")
-                    S_k = input("then the Turing Machine should print symbol [0,1,b] S_k = ")
-                    move_instruction = input("then move the head [L/R] = ")
-                    q_m = input("and finish in state: ")
-
-                    m_configurations_all.append([S_j,S_k,move_instruction,q_m])
-
-                # Add this m-configuration to the dictionary.
-                self.states[q_i] = m_configurations_all
-
-
-                print("|||" + "-"*10 + "|||")
-                print(self.states)
-
-                more_instructions = input("Would you like to add further m-configurations to the Machine? [Y/n]: ")
-
-                if more_instructions == "n":
-                    updating_Turing_Machine = False
-                else:
-                    pass
-
-    def progress_TM(self):
-
-        """
-            This method performs the action of the current state:
-
-                Updating the tape
-                Moving the head
-                Putting the machine in the next state
-
-        """
-
-        # This stores the value currently read by the head of the Machine.
-        S_j = self.tape[self.head]
-
-        # Given the current state and the value being read, we need to access the relevant
-        # m-configuration so that the Turing Machine can update.
-        update_rules = []
-        if S_j == "b":
-            update_rules = self.states[self.mconfig][0][1:]
-        elif S_j == "0":
-            update_rules = self.states[self.mconfig][1][1:]
-        else:
-            update_rules = self.states[self.mconfig][2][1:]
-
-        # Print the new value on the tape:
-        self.tape[self.head] = update_rules[0]
-
-        # Move the head accordingly:
-        if update_rules[1] == "R":
-            self.head += 1
-        else:
-            self.head -= 1
-
-        # Finally, the m-configuration should be updated:
-        self.mconfig = update_rules[-1]
-
-    def print_tape(self):
-
-        """
-            If the head is near the start of the tape, then this method prints the first
-            five cells of the tape. Otherwise it prints the two cells either side of the
-            current state.
-
-        """
-
-        i = self.head
-
-        if i >= 2:
-
-            print("="*30)
-            print("| " + self.tape[i-2] + " |" + "| " + self.tape[i-1] + " |" + "| " + self.tape[i] + " |" + "| " + self.tape[i+1] + " |" + "| " + self.tape[i+2] + " |")
-            print("="*30)
-
-        elif i == 1:
-            print("="*30)
-            print("||||| " + self.tape[i-1] + " |" + "| " + self.tape[i] + " |" + "| " + self.tape[i+1] + " |" + "| " + self.tape[i+2] + " |" + "| " + self.tape[i+3] + " |")
-            print("="*30)
-
-        else:
-            print("="*30)
-            print("||||| " + self.tape[i-1] + " |" + "| " + self.tape[i] + " |" + "| " + self.tape[i+1] + " |" + "| " + self.tape[i+2] + " |" + "| " + self.tape[i+3] + " |")
-            print("="*30)
-
-
-
+<<<<<<< HEAD
 test = turingMachine()
 
 for i in range(0,3):
@@ -173,3 +71,6 @@ for i in range(0,3):
     test.progress_TM()
     #test.print_tape()
 print(test.mconfig)
+=======
+print(read_TM_Code("tm-code-unaryAddition.txt"))
+>>>>>>> a11e377bcde20169df75e2226d695a547975bf4d
