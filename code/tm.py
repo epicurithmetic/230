@@ -136,16 +136,14 @@ def tm_move_instruction(direction):
         return 0
 
 # Start the computations...
-
 turingMachineInput = read_tm_input_tape("tm-tape-unaryAddition.txt")
 print(turingMachineInput)
-turingMachineDictionary = tm_compile_dictionary("tm-code-unaryAddition.txt")
+turingMachineDictionary = tm_compile_dictionary("tm-code-unaryEqual.txt")
 
 
 state = "q0"
 head_read = "@"
 head_position = 0
-
 
 steps = 1
 
@@ -169,7 +167,6 @@ while state != "HALT":
 
     # Update the value being read to the value in the new position
     head_read = turingMachineInput[head_position]
-
 
     print(turingMachineInput)
     # Print the number of steps
