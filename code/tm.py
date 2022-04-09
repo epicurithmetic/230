@@ -168,6 +168,7 @@ while state != "HALT":
     # Update the value being read to the value in the new position
     head_read = turingMachineInput[head_position]
 
+    # Print the state of the tape after all the updates. 
     print(turingMachineInput)
     # Print the number of steps
     steps += 1
