@@ -1,8 +1,6 @@
 # Code for simulating a turing machine.
 
 
-
-
 def read_TM_Input_Tape(inputTape):
 
     """
@@ -32,9 +30,6 @@ def read_TM_Input_Tape(inputTape):
 
     return input_raw
 
-print(read_TM_Input_Tape("tm-tape-unaryAddition.txt"))
-
-
 def read_TM_Code(turingMachine):
 
     """
@@ -60,3 +55,68 @@ def read_TM_Code(turingMachine):
     code_file.close()
 
     return code_raw
+
+def tm_state_names(instructions):
+
+    """
+        This function takes in the list of instructions (already formatted from the
+        text file into a list) for a Turing Machine and returns the set of state names.
+
+    """
+
+    state_names_set = set()
+
+    for instruction in instructions:
+
+        format_instructions = instruction.split(",")
+        state_names_set.add(format_instructions[0])
+
+    return state_names_set
+
+def tm_compile_dictionary(turingMachineCode):
+
+    """
+        Input: Raw turingMachineCode .txt file.
+
+        Output: Dictionary representation of machine code.
+
+
+        Idea is that this dictionary is to be used as
+
+        dict[state][read] = [print,move,new_state]
+
+
+        So, this dictionary has each state name "qxyz" as a key. Each state has a dictionary
+        whoses keys are the characters of the alphabet in use. For each character there is a
+        list of instructions for the Turing Machine.
+
+    """
+
+    tm_code_dictionary = {}
+
+    # Read in the code from the file.
+    raw_instructions = read_TM_Code(turingMachineCode)
+
+    # Collect the names of the states
+    tm_states = tm_state_names(raw_instructions)
+
+    for state in tm_states:
+
+        state_instruction_dictionary = {}
+
+        for instruction in raw_instructions:
+
+            format_instruction = instruction.split(",")
+
+            if format_instruction[0] == state:
+
+                state_instruction_dictionary[format_instruction[1]] = format_instruction[2:]
+
+            else:
+                pass
+
+        tm_code_dictionary[state] = state_instruction_dictionary
+
+    return tm_code_dictionary
+
+turingMachineDictionary = tm_compile_dictionary("tm-code-unaryAddition.txt")

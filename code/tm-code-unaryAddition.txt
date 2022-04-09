@@ -7,3 +7,4 @@ q3,1,b,L,q4;
 q4,1,1,L,q4;
 q4,b,1,L,q5;
 q5,@,@,N,HALT;
+HALT,@,@,N,HALT;
