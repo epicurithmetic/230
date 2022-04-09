@@ -1,6 +1,6 @@
 # Code for simulating a turing machine.
 
-def read_tm_input_tape(inputTape):
+def read_tm_input(inputTape):
 
     """
         This function reads a .txt file with a single line which should be of the following form:
@@ -136,11 +136,11 @@ def tm_move_instruction(direction):
         return 0
 
 # Start the computations...
-turingMachineInput = read_tm_input_tape("tm-tape.txt")
+turingMachineInput = read_tm_input("tm-tape.txt")
 print(turingMachineInput)
 turingMachineDictionary = tm_compile_dictionary("tm-code-unaryEven.txt")
 
-# NOTE!!! This should be refactored into a function/functions. 
+# NOTE!!! This should be refactored into a function/functions.
 state = "q0"
 head_read = "@"
 head_position = 0
