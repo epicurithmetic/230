@@ -136,9 +136,9 @@ def tm_move_instruction(direction):
         return 0
 
 # Start the computations...
-turingMachineInput = read_tm_input_tape("tm-tape-unaryAddition.txt")
+turingMachineInput = read_tm_input_tape("tm-tape.txt")
 print(turingMachineInput)
-turingMachineDictionary = tm_compile_dictionary("tm-code-unaryEqual.txt")
+turingMachineDictionary = tm_compile_dictionary("tm-code-unaryEven.txt")
 
 
 state = "q0"
