@@ -140,7 +140,7 @@ turingMachineInput = read_tm_input_tape("tm-tape.txt")
 print(turingMachineInput)
 turingMachineDictionary = tm_compile_dictionary("tm-code-unaryEven.txt")
 
-
+# NOTE!!! This should be refactored into a function/functions. 
 state = "q0"
 head_read = "@"
 head_position = 0
@@ -168,7 +168,7 @@ while state != "HALT":
     # Update the value being read to the value in the new position
     head_read = turingMachineInput[head_position]
 
-    # Print the state of the tape after all the updates. 
+    # Print the state of the tape after all the updates.
     print(turingMachineInput)
     # Print the number of steps
     steps += 1
