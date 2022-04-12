@@ -213,7 +213,7 @@ def tm_read_head(tm_position,tm_state,tm_print,tm_move,tm_updateState):
 
 # Start the computations...
 turingMachineInput = read_tm_input("tm-tape.txt")
-turingMachineDictionary = tm_compile_dictionary("tm-code-kiaorateao.txt")
+turingMachineDictionary = tm_compile_dictionary("tm-code-binarydecrement.txt")
 turingMachineOutput = open("tm-output.txt","x")
 
 # NOTE!!! This should be refactored into a function/functions.
