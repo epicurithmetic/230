@@ -135,10 +135,56 @@ def tm_move_instruction(direction):
     else:
         return 0
 
+
+#### ------------------------------------------------------------------
+#### Code for writing the computations to a file in a readable manner
+#### ------------------------------------------------------------------
+
+def tape_top(tape):
+
+    """
+
+
+    """
+    # How long is the tape?
+    number_cells = len(tape)
+
+    top = "|" + "|---"*number_cells + "|"
+
+    return top
+
+
+
+def tape_characters(tape):
+
+    # How long is the tape?
+    number_cells = len(tape)
+
+    tape_output = "|"
+
+    for character in tape:
+
+
+        if character == "b":
+
+            cell = "|" + " "*3
+            tape_output += cell
+
+        else:
+
+            cell = "|" + " " + character + " "
+            tape_output += cell
+
+
+
+    return tape_output + "|"
+
 # Start the computations...
 turingMachineInput = read_tm_input("tm-tape.txt")
 print(turingMachineInput)
+print(tape_characters(turingMachineInput))
 turingMachineDictionary = tm_compile_dictionary("tm-code-unaryEven.txt")
+turingMachineOutput = open("tm-output.txt","x")
 
 # NOTE!!! This should be refactored into a function/functions.
 state = "q0"
@@ -150,6 +196,15 @@ steps = 1
 while state != "HALT":
 
     # Update the state until it gets to HALT
+
+    # Write the current state to file.
+    tape_upper_lower = tape_top(turingMachineInput)
+    tape_cells = tape_characters(turingMachineInput)
+    tm_tape = tape_upper_lower + "\n" + tape_cells + "\n" + tape_upper_lower + "\n"*5
+
+    turingMachineOutput = open("tm-output.txt","a")
+    turingMachineOutput.write(tm_tape)
+    turingMachineOutput.close()
 
     # Retrieve the current instruction set.
     current_instructions = turingMachineDictionary[state][head_read]
@@ -169,7 +224,7 @@ while state != "HALT":
     head_read = turingMachineInput[head_position]
 
     # Print the state of the tape after all the updates.
-    print(turingMachineInput)
+    #print(turingMachineInput)
     # Print the number of steps
     steps += 1
 

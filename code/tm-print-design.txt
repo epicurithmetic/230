@@ -1,6 +1,6 @@
-||---||---||---||---||---||---||---||---||---||---||---||---||---||---||---||
-|| @ || 1 || 1 || 1 ||   ||   ||   ||   ||   ||   ||   ||   ||   ||   ||   ||
-||---||---||---||---||---||---||---||---||---||---||---||---||---||---||---||
+||---|---|---||---||---||---||---||---||---||---||---||---||---||---||---||
+|| @ | 1 | 1 || 1 ||   ||   ||   ||   ||   ||   ||   ||   ||   ||   ||   ||
+||---|---|---||---||---||---||---||---||---||---||---||---||---||---||---||
   | |
 /     \
 |C: q0 |
@@ -13,5 +13,5 @@ Note that the distance between each cell of the tape is 5 spaces.
 
 [ ]: Print a list into the tape structure above.
 [ ]: Print the head with the state information.
-[ ]: Print these in succession as the tape upates OR,
+[ ]: Print these in succession as the tape updates OR,
 [ ]: Store enough information to print it all at the end.
