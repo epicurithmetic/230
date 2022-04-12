@@ -153,8 +153,6 @@ def tape_top(tape):
 
     return top
 
-
-
 def tape_characters(tape):
 
     # How long is the tape?
@@ -179,12 +177,46 @@ def tape_characters(tape):
 
     return tape_output + "|"
 
+def tm_read_head(tm_position,tm_state,tm_print,tm_move,tm_updateState):
+
+    """
+
+          | |       two spaces + | + space + | + two spaces
+        /     \     / + three spaces + \
+        |C: q0 |    |C: + space + tm_state + space + |
+        |P: @  |    |P: + space + tm_print + space + |
+        |M: R  |    |M: + space + tm_move + space + |
+        |U: q0 |    |U: + space + tm_updateState + space + |
+        --------
+
+    """
+
+    # This will determine how far along the head should read.
+    shift = (tm_position)*4
+
+    line_1 = " "*shift + " "*2 + "|" + " " + "|" + " "*2 + "\n"
+    line_2 = " "*shift + " /   \\" + "\n"
+    line_3 = " "*shift + "|C: " + tm_state + "|" + "\n"
+    line_4 = " "*shift + "|P: " + tm_print + " |" + "\n"
+    line_5 = " "*shift + "|M: " + tm_move + " |" + "\n"
+    line_6 = " "*shift + "|U: " + tm_updateState + "|" + "\n"
+    line_7 = " "*shift + "-"*7
+
+    # Output string
+    head_output = ""
+
+    lines_head = [line_1,line_2,line_3,line_4,line_5,line_6,line_7]
+    for line in lines_head:
+        head_output += line
+
+    return head_output
+
+
 # Start the computations...
 turingMachineInput = read_tm_input("tm-tape.txt")
-print(turingMachineInput)
-print(tape_characters(turingMachineInput))
-turingMachineDictionary = tm_compile_dictionary("tm-code-unaryEven.txt")
+turingMachineDictionary = tm_compile_dictionary("tm-code-unaryEqual.txt")
 turingMachineOutput = open("tm-output.txt","x")
+
 
 # NOTE!!! This should be refactored into a function/functions.
 state = "q0"
@@ -195,37 +227,60 @@ steps = 1
 
 while state != "HALT":
 
-    # Update the state until it gets to HALT
+    # Retrieve the current instruction set.
+    current_instructions = turingMachineDictionary[state][head_read]
+
+    # Find the value to print to the tape.
+    print_value = current_instructions[0]
+
+    # Find the move direction and update the head position
+    move_direction = current_instructions[1]
+
+    # Find the state to update to.
+    next_state = current_instructions[2]
+    next_state_print = ""
+    if next_state == "HALT":
+        next_state_print = "H "
+    else:
+        next_state_print = next_state
 
     # Write the current state to file.
     tape_upper_lower = tape_top(turingMachineInput)
     tape_cells = tape_characters(turingMachineInput)
-    tm_tape = tape_upper_lower + "\n" + tape_cells + "\n" + tape_upper_lower + "\n"*5
+    tm_tape = tape_upper_lower + "\n" + tape_cells + "\n" + tape_upper_lower + "\n"
+
+    head_instructions = tm_read_head(head_position,state,print_value,move_direction,next_state_print)
+
 
     turingMachineOutput = open("tm-output.txt","a")
     turingMachineOutput.write(tm_tape)
+    turingMachineOutput.write(head_instructions)
+    turingMachineOutput.write("\n")
     turingMachineOutput.close()
 
-    # Retrieve the current instruction set.
-    current_instructions = turingMachineDictionary[state][head_read]
+
+
+    # Update the state and tape according to the instructions.
 
     # Print the appropriate value to the tape.
-    print_value = current_instructions[0]
     turingMachineInput[head_position] = print_value
 
-    # Find the move direction and update the head position
-    move_direction = current_instructions[1]
+    # Move the head of the Turing Machine.
     head_position += tm_move_instruction(move_direction)
 
     # Update the state according to the instructions.
-    state = current_instructions[2]
+    state = next_state
 
     # Update the value being read to the value in the new position
     head_read = turingMachineInput[head_position]
 
-    # Print the state of the tape after all the updates.
-    #print(turingMachineInput)
+    # If the head gets within' 2 spaces of the end, then we append a blank cell. This Gives the Turing Machine it's potentially infinite tape.
+    if (len(turingMachineInput) - head_position) <=2:
+        turingMachineInput.append("b")
+
     # Print the number of steps
     steps += 1
 
-print(steps)
+turingMachineOutput = open("tm-output.txt","a")
+turingMachineOutput.write("\n" + "HALT!")
+turingMachineOutput.close()
