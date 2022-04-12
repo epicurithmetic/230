@@ -162,7 +162,6 @@ def tape_characters(tape):
 
     for character in tape:
 
-
         if character == "b":
 
             cell = "|" + " "*3
@@ -214,9 +213,8 @@ def tm_read_head(tm_position,tm_state,tm_print,tm_move,tm_updateState):
 
 # Start the computations...
 turingMachineInput = read_tm_input("tm-tape.txt")
-turingMachineDictionary = tm_compile_dictionary("tm-code-unaryEqual.txt")
+turingMachineDictionary = tm_compile_dictionary("tm-code-kiaorateao.txt")
 turingMachineOutput = open("tm-output.txt","x")
-
 
 # NOTE!!! This should be refactored into a function/functions.
 state = "q0"
@@ -225,7 +223,7 @@ head_position = 0
 
 steps = 1
 
-while state != "HALT":
+while (state != "HALT") and (steps < 1000) and len(turingMachineInput) < 100:
 
     # Retrieve the current instruction set.
     current_instructions = turingMachineDictionary[state][head_read]

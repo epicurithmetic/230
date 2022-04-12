@@ -1,0 +1,15 @@
+q0,@,@,R,q1;
+q1,b,k,R,q2;
+q2,b,i,R,q3;
+q3,b,a,R,q4;
+q4,b,b,R,q5;
+q5,b,o,R,q6;
+q6,b,r,R,q7;
+q7,b,a,R,q8;
+q8,b,b,R,q9;
+q9,b,t,R,q10;
+q10,b,e,R,q11;
+q11,b,b,R,q12;
+q12,b,a,R,q13;
+q13,b,o,R,q14;
+q14,b,b,N,HALT;
