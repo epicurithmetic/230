@@ -215,6 +215,7 @@ def tm_read_head(tm_position,tm_state,tm_print,tm_move,tm_updateState):
 turingMachineInput = read_tm_input("tm-tape.txt")
 turingMachineDictionary = tm_compile_dictionary("tm-code-binarydecrement.txt")
 turingMachineOutput = open("tm-output.txt","x")
+turingMachineOutput.close()
 
 # NOTE!!! This should be refactored into a function/functions.
 state = "q0"
