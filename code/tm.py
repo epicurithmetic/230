@@ -1,4 +1,5 @@
 # Code for simulating a turing machine.
+import re
 
 def read_tm_input(inputTape):
 
@@ -49,7 +50,10 @@ def read_tm_code(turingMachine):
 
     # Read the Turing machine code from file.
     code_file = open(turingMachine,"r")
-    code_raw = code_file.read().split(";\n")[:-1]
+    code_raw = code_file.read()
+    # This regex sub allows for comments in the code between angle brackets on a single line.
+    code_raw = re.sub("\<.*?\>\n","",code_raw)
+    code_raw = code_raw.split(";\n")[:-1]
     # At this point code_raw is a list of states in "standard form"
     code_file.close()
 
@@ -213,7 +217,7 @@ def tm_read_head(tm_position,tm_state,tm_print,tm_move,tm_updateState):
 
 # Start the computations...
 turingMachineInput = read_tm_input("tm-tape.txt")
-turingMachineDictionary = tm_compile_dictionary("tm-code-binaryaddition.txt")
+turingMachineDictionary = tm_compile_dictionary("tm-code-unaryAddition.txt")
 turingMachineOutput = open("tm-output.txt","w")
 turingMachineOutput.close()
 
