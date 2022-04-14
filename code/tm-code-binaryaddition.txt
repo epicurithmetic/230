@@ -1,4 +1,4 @@
-< This code starts by setting space for the (c)arry and (s)um. Carry initially set to 0. >
+# This code starts by setting space for the (c)arry and (s)um. Carry initially set to 0. #
 q0,@,@,R,q0;
 q0,1,1,R,q0;
 q0,0,0,R,q0;
@@ -6,7 +6,7 @@ q0,+,+,R,q0;
 q0,b,c,R,q1;
 q1,b,0,R,q2;
 q2,b,s,L,q3;
-< Once the setup is done. The TM moves to sum the least significant bits of each integer. >
+# Once the setup is done. The TM moves to sum the least significant bits of each integer. #
 q3,0,0,L,q3;
 q3,1,1,L,q3;
 q3,s,s,L,q3;

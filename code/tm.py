@@ -52,7 +52,7 @@ def read_tm_code(turingMachine):
     code_file = open(turingMachine,"r")
     code_raw = code_file.read()
     # This regex sub allows for comments in the code between angle brackets on a single line.
-    code_raw = re.sub("\<.*?\>\n","",code_raw)
+    code_raw = re.sub("\#.*?\#\n","",code_raw)
     code_raw = code_raw.split(";\n")[:-1]
     # At this point code_raw is a list of states in "standard form"
     code_file.close()
