@@ -280,6 +280,7 @@ while (state != "HALT") and (steps < 1000) and len(turingMachineInput) < 100:
     # Print the number of steps
     steps += 1
 
+print(steps)
 turingMachineOutput = open("tm-output.txt","a")
 turingMachineOutput.write("\n" + "HALT!")
 turingMachineOutput.close()
